@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="logo">
+            <span>VISHESH KAUSHAL—</span><br>
+            <span class="year">&copy;2026</span>
+        </div>
+        <nav class="nav-links">
+            <a href="mailto:visheshkaushal8@gmail.com">➔ EMAIL</a>
+            <a href="https://github.com/vishesh-2306" target="_blank">➔ GITHUB</a>
+            <a href="https://www.linkedin.com/in/vishesh-kaushal-8b4011306/" target="_blank">➔ LINKEDIN</a>
+        </nav>
+        <a href="mailto:visheshkaushal8@gmail.com" class="btn-hire"
+            style="text-decoration: none; display: inline-block;">HIRE ME</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-visual">
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="./assets/hero.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="hero-text-wrapper gs-reveal">
+            <h1 class="hero-title">
+                Develop AI systems<br>
+                that actually work.
+            </h1>
+        </div>
+    </section>
+
+    <!-- Post-Hero Content -->
+    <main class="page-content">
+
+        <!-- Section 01: Work / Case Studies -->
+        <section class="section-block" id="work">
+            <div class="section-meta gs-reveal">
+                <span>[ 01 / 04 ]</span>
+                <span class="meta-title">SELECTED WORK</span>
+            </div>
+
+            <div class="work-grid">
+                <a href="https://github.com/vishesh-2306/sentiscope" target="_blank" class="work-item gs-reveal"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="work-img-wrapper">
+                        <img src="./assets/projects/sentiscope.jpg" alt="Sentiscope Project"
+                            class="work-img parallax-img">
+                    </div>
+                    <div class="work-info">
+                        <h3>SENTISCOPE</h3>
+                        <p>Real-Time XAI Sentiment Analyzer (FastAPI, React)</p>
+                    </div>
+                </a>
+                <a href="https://github.com/vishesh-2306/EAV-Multimodal-Sentiment-Analyzer" target="_blank"
+                    class="work-item gs-reveal" style="text-decoration: none; color: inherit;">
+                    <div class="work-img-wrapper">
+                        <img src="./assets/projects/eav.jpg" alt="EAV Multimodal Project" class="work-img parallax-img">
+                    </div>
+                    <div class="work-info">
+                        <h3>EAV MULTIMODAL</h3>
+                        <p>Advanced Sentiment Analysis Dashboard</p>
+                    </div>
+                </a>
+                <a href="https://github.com/vishesh-2306/quantium-starter-repo" target="_blank"
+                    class="work-item gs-reveal" style="text-decoration: none; color: inherit;">
+                    <div class="work-img-wrapper">
+                        <img src="./assets/projects/quantium.jpg" alt="Quantium Simulation Project"
+                            class="work-img parallax-img">
+                    </div>
+                    <div class="work-info">
+                        <h3>QUANTIUM SIMULATION</h3>
+                        <p>Interactive Analytics & Automated Pipeline</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 02: Services -->
+        <section class="section-block services-section" id="services">
+            <div class="section-meta gs-reveal">
+                <span>[ 02 / 04 ]</span>
+                <span class="meta-title">EXPERTISE</span>
+            </div>
+
+            <div class="services-layout">
+                <div class="services-left gs-reveal">
+                    <h2 class="section-headline">I build robust backend systems and intelligent ML pipelines.</h2>
+                    <p class="body-text">
+                        Currently an undergraduate specializing in Artificial Intelligence. Fluent in Java, Python, and
+                        JavaScript. I engineer REST APIs with FastAPI, construct full-stack web apps using React, and
+                        deploy scalable ML models using TF-IDF and Scikit-Learn.
+                    </p>
+                    <a href="https://leetcode.com/u/visheshkaushal/" target="_blank" class="btn-outline"
+                        style="text-decoration: none;">VIEW LEETCODE ↗</a>
+                </div>
+
+                <div class="services-right gs-reveal">
+                    <ul class="services-list">
+                        <li>Backend API</li>
+                        <li>Machine Learning</li>
+                        <li>Full-Stack Web</li>
+                        <li>Data Structures</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Philosophy / Rules (Marquee Placeholder) -->
+        <section class="section-block philosophy-section" id="philosophy">
+            <div class="section-meta gs-reveal">
+                <span>[ 03 / 04 ]</span>
+                <span class="meta-title">PHILOSOPHY</span>
+            </div>
+
+            <div class="philosophy-content">
+                <div class="marquee-container">
+                    <h2 class="massive-text scroll-right">CHASE DEADLINES.</h2>
+                    <h2 class="massive-text scroll-left">DEVOUR THEM.</h2>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Section 04: Footer / CTA -->
+    <footer class="site-footer section-block orange-bg" id="contact">
+        <div class="section-meta">
+            <span>[ 04 / 04 ]</span>
+            <span class="meta-title">CONTACT</span>
+        </div>
+
+        <div class="footer-cta gs-reveal">
+            <h2 class="footer-headline">Let's build<br>something.</h2>
+            <div class="footer-contact-info">
+                <span class="contact-label">Get in touch ➔</span>
+                <a href="mailto:visheshkaushal8@gmail.com" class="contact-email">visheshkaushal8@gmail.com</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="https://github.com/vishesh-2306" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/vishesh-kaushal-8b4011306/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/visheshk.23/" target="_blank">Instagram</a>
+                <a href="https://leetcode.com/u/visheshkaushal/" target="_blank">LeetCode</a>
+            </div>
+            <p>&copy; 2026 Vishesh Kaushal.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
