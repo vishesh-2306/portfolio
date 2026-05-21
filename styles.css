@@ -199,6 +199,8 @@ button {
     z-index: 5;
     width: 100%;
     pointer-events: none; /* Let hover pass directly to canvas */
+    margin-top: auto;      /* Dynamically pushes the name down */
+    margin-bottom: -1.8rem; /* Pulls the baseline exactly just above the partition line */
 }
 
 .hero-title {
@@ -290,61 +292,213 @@ button {
 }
 
 /* ========================================================================= */
-/* Work Section                                                              */
+/* Work Section (Subsections Restructured - Sticky Stacking Cards)          */
 /* ========================================================================= */
 
-.work-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-}
-
-.work-item {
+.projects-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    cursor: pointer;
-}
-
-.work-img-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #111;
-    border-radius: var(--border-radius);
-    overflow: hidden;
+    margin-top: var(--space-md);
     position: relative;
 }
 
-.work-item:hover .work-img {
-    opacity: 0.8;
-    transform: scale(1.05);
+.project-row {
+    width: 100%;
+    position: sticky;
+    top: 12vh;
+    background: rgba(10, 10, 10, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.2rem;
+    margin-bottom: 8vh;
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.6);
+    transform-origin: top center;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.work-img {
+.project-row:last-child {
+    margin-bottom: 0;
+}
+
+.project-left {
     width: 100%;
-    height: 120%;
-    /* Extra height to allow scrolling translation */
+    margin-bottom: 1.5rem;
+}
+
+.project-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-color: #111;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
+    filter: grayscale(10%) contrast(1.05);
+}
+
+.project-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.project-tech {
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #FF4D4D; /* Signature brand red-pink */
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 77, 77, 0.15);
+}
+
+.project-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.5rem;
+}
+
+.project-name {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.project-date {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.project-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 1.2rem 0;
+}
+
+.project-bullets li {
+    font-size: 0.96rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.82);
+    position: relative;
+    padding-left: 1.3rem;
+}
+
+.project-bullets li strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Red-pink square brutalist bullet points */
+.project-bullets li::before {
+    content: "▪";
     position: absolute;
-    top: -10%;
     left: 0;
-    transition: opacity 0.3s ease, transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+    color: #FF4D4D;
+    font-size: 0.9rem;
+    top: -1px;
 }
 
-.work-info h3 {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom: 0.25rem;
+.project-action {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: auto;
 }
 
-.work-info p {
-    color: var(--color-muted);
-    font-size: 1rem;
+/* Brutalist Redirect Button */
+.btn-git {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-@media (min-width: 768px) {
-    .work-grid {
-        grid-template-columns: repeat(2, 1fr);
+.btn-git span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-git::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #FF4D4D;
+    z-index: 1;
+    transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Button Hover State */
+.btn-git:hover {
+    border-color: #FF4D4D;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.3);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.btn-git:hover::before {
+    left: 0;
+}
+
+/* Responsive Desktop Layout */
+@media (min-width: 992px) {
+    .project-row {
+        display: grid;
+        grid-template-columns: 1fr 1.32fr;
+        gap: 3.5rem;
+        align-items: start;
+        padding: 3rem 2.5rem;
+    }
+    
+    .project-left {
+        margin-bottom: 0;
+    }
+    
+    .project-row:hover {
+        border-color: rgba(255, 77, 77, 0.2);
+        box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.9), 0 30px 60px rgba(255, 77, 77, 0.05);
+    }
+    
+    .project-row:hover .project-img {
+        transform: scale(1.04);
+        filter: grayscale(0%) contrast(1.05);
     }
 }
 

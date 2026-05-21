@@ -90,19 +90,24 @@ class PortfolioExperience {
             );
         }
 
-        // Parallax effect on Project Cover Images
-        const parallaxImages = document.querySelectorAll('.parallax-img');
-        parallaxImages.forEach((img) => {
-            gsap.to(img, {
-                yPercent: 20, // Translate down as user scrolls
-                ease: "none",
-                scrollTrigger: {
-                    trigger: img.closest('.work-img-wrapper'),
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
-            });
+        // Sticky Stacking Card Deck Effect for Selected Work
+        const projectCards = gsap.utils.toArray('.project-row');
+        projectCards.forEach((card, index) => {
+            // As long as it is not the last card, animate it shrinking/fading as the next card scrolls up
+            if (index < projectCards.length - 1) {
+                gsap.to(card, {
+                    scale: 0.94,
+                    opacity: 0.5,
+                    yPercent: -10, // slight vertical compression
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: projectCards[index + 1], // Triggered by the next card entering
+                        start: "top 85%",                 // Start scaling when the next card enters viewport
+                        end: "top 15%",                   // Stop scaling when the next card is fully placed
+                        scrub: true
+                    }
+                });
+            }
         });
 
         // Education Timeline Progress Trace & Stagger Reveal
