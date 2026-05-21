@@ -6,6 +6,7 @@ class PortfolioExperience {
     init() {
         this.setupLenis();
         this.setupScrollAnimations();
+        this.initInteractiveCanvas();
 
         // Ensure layout is clean on resize
         window.addEventListener('resize', this.debounce(() => ScrollTrigger.refresh(), 200));
@@ -62,19 +63,31 @@ class PortfolioExperience {
             );
         });
 
-        // Parallax effect on the Hero Visual
-        const heroVisual = document.querySelector('.hero-visual');
-        if (heroVisual) {
-            gsap.to(heroVisual, {
-                yPercent: 30, // Move down slightly as user scrolls
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".hero-section",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true
+        // Staggered mechanical popping animation for keyboard keys
+        const keyboardKeys = document.querySelectorAll('.keyboard-key');
+        if (keyboardKeys.length > 0) {
+            gsap.fromTo(keyboardKeys, 
+                {
+                    y: 85,
+                    opacity: 0,
+                    scale: 0.7,
+                    rotateX: -25
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    rotateX: 0,
+                    duration: 1.4,
+                    ease: "elastic.out(1.05, 0.65)", // satisfying spring bounce
+                    stagger: 0.08, // crisp rapid succession
+                    scrollTrigger: {
+                        trigger: ".keyboard-deck",
+                        start: "top 88%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            });
+            );
         }
 
         // Parallax effect on Project Cover Images
@@ -118,21 +131,143 @@ class PortfolioExperience {
             });
         }
 
-        // Header Visibility Control
-        const header = document.querySelector('.site-header');
-        const mainContent = document.querySelector('.page-content');
 
-        if (header && mainContent) {
-            ScrollTrigger.create({
-                trigger: mainContent,
-                start: "top 5%", // Hide when scrolling past hero
-                end: "bottom 95%", // Show when reaching footer
-                onEnter: () => gsap.to(header, { autoAlpha: 0, y: -20, duration: 0.3 }),
-                onLeave: () => gsap.to(header, { autoAlpha: 1, y: 0, duration: 0.3 }),
-                onEnterBack: () => gsap.to(header, { autoAlpha: 0, y: -20, duration: 0.3 }),
-                onLeaveBack: () => gsap.to(header, { autoAlpha: 1, y: 0, duration: 0.3 })
-            });
+    }
+
+    initInteractiveCanvas() {
+        const canvas = document.getElementById('hero-canvas');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const parent = canvas.parentElement;
+
+        let width = canvas.width = parent.clientWidth;
+        let height = canvas.height = parent.clientHeight;
+
+        let particles = [];
+        const connectionDistance = 110;
+        const mouse = { x: null, y: null, radius: 150 };
+        const dpr = window.devicePixelRatio || 1;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.radius = Math.random() * 2.0 + 2.0;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        this.x += (dx / dist) * force * 0.5;
+                        this.y += (dy / dist) * force * 0.5;
+                    }
+                }
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                if (this.x < 0) this.x = 0;
+                if (this.x > width) this.x = width;
+                if (this.y < 0) this.y = 0;
+                if (this.y > height) this.y = height;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 77, 77, 0.65)';
+                ctx.fill();
+            }
         }
+
+        function resize() {
+            width = parent.clientWidth;
+            height = parent.clientHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+
+            // Generate particles once canvas has non-zero size
+            if (particles.length === 0 && width > 0 && height > 0) {
+                const maxParticles = Math.max(45, Math.min(85, Math.floor((width * height) / 8000)));
+                for (let i = 0; i < maxParticles; i++) {
+                    particles.push(new Particle());
+                }
+            }
+        }
+        
+        resize();
+        window.addEventListener('resize', this.debounce(resize, 100));
+
+        parent.addEventListener('mousemove', (e) => {
+            const rect = parent.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+
+        parent.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                p1.update();
+                p1.draw();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < connectionDistance) {
+                        const alpha = (1 - dist / connectionDistance) * 0.22;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(255, 77, 77, ${alpha})`;
+                        ctx.lineWidth = 0.7;
+                        ctx.stroke();
+                    }
+                }
+
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = p1.x - mouse.x;
+                    const dy = p1.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < mouse.radius) {
+                        const alpha = (1 - dist / mouse.radius) * 0.4;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(255, 77, 77, ${alpha})`;
+                        ctx.lineWidth = 0.95;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     }
 
     debounce(func, wait) {
