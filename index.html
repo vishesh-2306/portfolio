@@ -16,32 +16,36 @@
 
     <!-- Header Navigation -->
     <header class="site-header">
-        <div class="logo">
-            <span>VISHESH KAUSHAL—</span><br>
-            <span class="year">&copy;2026</span>
-        </div>
         <nav class="nav-links">
             <a href="mailto:visheshkaushal8@gmail.com">➔ EMAIL</a>
             <a href="https://github.com/vishesh-2306" target="_blank">➔ GITHUB</a>
             <a href="https://www.linkedin.com/in/vishesh-kaushal-8b4011306/" target="_blank">➔ LINKEDIN</a>
         </nav>
-        <a href="mailto:visheshkaushal8@gmail.com" class="btn-hire"
-            style="text-decoration: none; display: inline-block;">HIRE ME</a>
     </header>
 
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
-        <div class="hero-visual">
-            <video class="hero-video" autoplay loop muted playsinline>
-                <source src="./assets/hero.mp4" type="video/mp4">
-            </video>
+        <!-- Dynamic Interactive Background Canvas -->
+        <canvas id="hero-canvas"></canvas>
+
+        <!-- Massive Name Overlay -->
+        <div class="hero-header-wrapper gs-reveal">
+            <h1 class="hero-title">VISHESH KAUSHAL</h1>
         </div>
 
-        <div class="hero-text-wrapper gs-reveal">
-            <h1 class="hero-title">
-                Develop AI systems<br>
-                that actually work.
-            </h1>
+        <!-- Biography & Expertise Grid -->
+        <div class="hero-bio-grid gs-reveal">
+            <div class="bio-text">
+                <p>I am a Computer Science undergraduate at Netaji Subhas University of Technology (NSUT), specializing
+                    in Artificial Intelligence, with a strong interest in software engineering, backend development, and
+                    building real-world technology through projects and hackathons.</p>
+            </div>
+            <div class="bio-tags">
+                <span class="bio-tag-item">// SOFTWARE DEVELOPMENT</span>
+                <span class="bio-tag-item">// BACKEND ENGINEERING</span>
+                <span class="bio-tag-item">// AI-DRIVEN SOLUTIONS</span>
+                <span class="bio-tag-item">// SCALABLE SYSTEMS</span>
+            </div>
         </div>
     </section>
 
@@ -91,32 +95,251 @@
             </div>
         </section>
 
-        <!-- Section 02: Services -->
-        <section class="section-block services-section" id="services">
+        <!-- Section 02: Skills -->
+        <section class="section-block skills-section" id="skills">
             <div class="section-meta gs-reveal">
                 <span>[ 02 / 04 ]</span>
-                <span class="meta-title">EXPERTISE</span>
+                <span class="meta-title">SKILLS</span>
             </div>
 
             <div class="services-layout">
                 <div class="services-left gs-reveal">
-                    <h2 class="section-headline">I build robust backend systems and intelligent ML pipelines.</h2>
+                    <h2 class="section-headline">I build scalable software, backend systems, and AI-powered solutions.
+                    </h2>
                     <p class="body-text">
-                        Currently an undergraduate specializing in Artificial Intelligence. Fluent in Java, Python, and
-                        JavaScript. I engineer REST APIs with FastAPI, construct full-stack web apps using React, and
-                        deploy scalable ML models using TF-IDF and Scikit-Learn.
+                        Currently a Computer Science undergraduate at NSUT, specializing in Artificial Intelligence. I
+                        enjoy building backend systems, full-stack applications, and intelligent software that solve
+                        practical problems through projects, hackathons, and continuous learning.
                     </p>
                     <a href="https://leetcode.com/u/visheshkaushal/" target="_blank" class="btn-outline"
                         style="text-decoration: none;">VIEW LEETCODE ↗</a>
                 </div>
 
-                <div class="services-right gs-reveal">
-                    <ul class="services-list">
-                        <li>Backend API</li>
-                        <li>Machine Learning</li>
-                        <li>Full-Stack Web</li>
-                        <li>Data Structures</li>
-                    </ul>
+                <div class="skills-right gs-reveal">
+                    <div class="keyboard-deck-wrapper">
+
+                        <!-- LANGUAGES SECTION -->
+                        <div class="skills-category-group">
+                            <span class="skills-category-title">Languages</span>
+                            <div class="keyboard-deck">
+                                <!-- JAVA KEY -->
+                                <div class="keyboard-key key-java">
+                                    <div class="key-top">
+                                        <span class="key-legend">J</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M12 2c0 0-3 3-3 5.5s2 4.5 2 6.5-2 3-2 3M9.5 2c0 0-2 2-2 4.5s1.5 3.5 1.5 5.5-1.5 2.5-1.5 2.5M6 21c4.5 1 7.5 1 12 0M5 18c3 0.5 5 0.5 8 0" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">JAVA</span>
+                                    </div>
+                                </div>
+
+                                <!-- PYTHON KEY -->
+                                <div class="keyboard-key key-python">
+                                    <div class="key-top">
+                                        <span class="key-legend">Py</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm1 4h2v2h-2zm-4 8h2v2H9zm8-2h-3v-1a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1h4a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-6-2h2v2H7z" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">PYTHON</span>
+                                    </div>
+                                </div>
+
+                                <!-- JAVASCRIPT KEY -->
+                                <div class="keyboard-key key-js">
+                                    <div class="key-top">
+                                        <span class="key-legend">JS</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M3 3h18v18H3zm11 9.5v5c0 .8.7 1.5 1.5 1.5.7 0 1.5-.7 1.5-1.5h-1.5m-5.5 0c0 .8.7 1.5 1.5 1.5.7 0 1.5-.7 1.5-1.5v-2c0-.8-.7-1.5-1.5-1.5h-1.5" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">JAVASCRIPT</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BACKEND SECTION -->
+                        <div class="skills-category-group">
+                            <span class="skills-category-title">Backend</span>
+                            <div class="keyboard-deck">
+                                <!-- FASTAPI KEY -->
+                                <div class="keyboard-key key-fastapi">
+                                    <div class="key-top">
+                                        <span class="key-legend">Fa</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">FASTAPI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FRONTEND SECTION -->
+                        <div class="skills-category-group">
+                            <span class="skills-category-title">Frontend</span>
+                            <div class="keyboard-deck">
+                                <!-- REACT KEY -->
+                                <div class="keyboard-key key-react">
+                                    <div class="key-top">
+                                        <span class="key-legend">Re</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" />
+                                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
+                                                <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" />
+                                                <circle cx="12" cy="12" r="1.5" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">REACT</span>
+                                    </div>
+                                </div>
+
+                                <!-- HTML KEY -->
+                                <div class="keyboard-key key-html">
+                                    <div class="key-top">
+                                        <span class="key-legend">Ht</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path d="M17 8l5 4-5 4M7 16l-5-4 5-4M14 4l-4 16" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">HTML</span>
+                                    </div>
+                                </div>
+
+                                <!-- CSS KEY -->
+                                <div class="keyboard-key key-css">
+                                    <div class="key-top">
+                                        <span class="key-legend">Cs</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path d="M12 2L2 7l10 5 10-5-10-5zm0 10l-10-5v10l10 5 10-5V7l-10 5z" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">CSS</span>
+                                    </div>
+                                </div>
+
+                                <!-- TAILWIND KEY -->
+                                <div class="keyboard-key key-tailwind">
+                                    <div class="key-top">
+                                        <span class="key-legend">Tw</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M12 3c-1.2 0-2.4.6-3.6 1.8S6.6 7.8 6.6 9c0 1.2.6 2.4 1.8 3.6s2.4 1.8 3.6 1.8c1.2 0 2.4-.6 3.6-1.8s1.8-2.4 1.8-3.6c0-1.2-.6-2.4-1.8-3.6S13.2 3 12 3z" />
+                                                <path
+                                                    d="M12 11c-1.2 0-2.4.6-3.6 1.8s-1.8 3-1.8 4.2c0 1.2.6 2.4 1.8 3.6s2.4 1.8 3.6 1.8c1.2 0 2.4-.6 3.6-1.8s1.8-2.4 1.8-3.6c0-1.2-.6-2.4-1.8-3.6S13.2 11 12 11z" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">TAILWIND</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TOOLS & DEPLOYMENT SECTION -->
+                        <div class="skills-category-group">
+                            <span class="skills-category-title">Tools &amp; Deployment</span>
+                            <div class="keyboard-deck">
+                                <!-- GIT KEY -->
+                                <div class="keyboard-key key-git">
+                                    <div class="key-top">
+                                        <span class="key-legend">Gt</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <circle cx="18" cy="18" r="3" />
+                                                <circle cx="6" cy="6" r="3" />
+                                                <circle cx="6" cy="18" r="3" />
+                                                <path d="M6 9v6M9 18h6" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">GIT</span>
+                                    </div>
+                                </div>
+
+                                <!-- GITHUB KEY -->
+                                <div class="keyboard-key key-github">
+                                    <div class="key-top">
+                                        <span class="key-legend">Gh</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">GITHUB</span>
+                                    </div>
+                                </div>
+
+                                <!-- BASH KEY -->
+                                <div class="keyboard-key key-bash">
+                                    <div class="key-top">
+                                        <span class="key-legend">Ba</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path d="M4 17l6-5-6-5M12 19h8" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">BASH</span>
+                                    </div>
+                                </div>
+
+                                <!-- VERCEL KEY -->
+                                <div class="keyboard-key key-vercel">
+                                    <div class="key-top">
+                                        <span class="key-legend">Ve</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path d="M12 2L2 22h20L12 2z" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">VERCEL</span>
+                                    </div>
+                                </div>
+
+                                <!-- RENDER KEY -->
+                                <div class="keyboard-key key-render">
+                                    <div class="key-top">
+                                        <span class="key-legend">Rn</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M12 2a10 10 0 0 0-10 10c0 4.14 2.5 7.7 6.06 9.24l.94-1.62C6.18 18.4 4.5 15.4 4.5 12c0-4.14 3.36-7.5 7.5-7.5s7.5 3.36 7.5 7.5c0 3.4-1.68 6.4-4.5 7.62l.94 1.62C19.5 19.7 22 16.14 22 12A10 10 0 0 0 12 2z" />
+                                                <circle cx="12" cy="12" r="4" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">RENDER</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
