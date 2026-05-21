@@ -105,30 +105,46 @@ class PortfolioExperience {
             });
         });
 
-        // Philosophy Horizontal Marquee Scroll
-        const philosophySection = document.querySelector('.philosophy-section');
-        if (philosophySection) {
-            gsap.to('.scroll-right', {
-                xPercent: 15, // Move right
-                ease: "none",
-                scrollTrigger: {
-                    trigger: philosophySection,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
+        // Education Timeline Progress Trace & Stagger Reveal
+        const educationSection = document.querySelector('.education-section');
+        if (educationSection) {
+            // Animate vertical light trace progress down the timeline line
+            gsap.fromTo('.timeline-progress',
+                { height: '0%' },
+                {
+                    height: '100%',
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: '.education-timeline',
+                        start: "top 60%", // Starts drawing when top hits 60% of viewport
+                        end: "bottom 70%", // Fully drawn when bottom hits 70% of viewport
+                        scrub: true
+                    }
                 }
-            });
+            );
 
-            gsap.to('.scroll-left', {
-                xPercent: -15, // Move left
-                ease: "none",
-                scrollTrigger: {
-                    trigger: philosophySection,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
+            // Stagger reveal of timeline elements
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            gsap.fromTo(timelineItems,
+                {
+                    opacity: 0,
+                    x: 40,
+                    rotateY: 15
+                },
+                {
+                    opacity: 1,
+                    x: 0,
+                    rotateY: 0,
+                    duration: 1.0,
+                    stagger: 0.18,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: '.education-timeline',
+                        start: "top 75%",
+                        toggleActions: "play none none reverse"
+                    }
                 }
-            });
+            );
         }
 
 

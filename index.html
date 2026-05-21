@@ -106,11 +106,12 @@
                 <div class="services-left gs-reveal">
                     <h2 class="section-headline">I build scalable software, backend systems, and AI-powered solutions.
                     </h2>
-                    <p class="body-text">
-                        Currently a Computer Science undergraduate at NSUT, specializing in Artificial Intelligence. I
-                        enjoy building backend systems, full-stack applications, and intelligent software that solve
-                        practical problems through projects, hackathons, and continuous learning.
-                    </p>
+                    <div class="skills-keywords">
+                        <div class="keyword-tag">// DATA STRUCTURES &amp; ALGORITHMS</div>
+                        <div class="keyword-tag">// BACKEND DEVELOPMENT</div>
+                        <div class="keyword-tag">// MACHINE LEARNING</div>
+                        <div class="keyword-tag">// SCALABLE SYSTEMS</div>
+                    </div>
                     <a href="https://leetcode.com/u/visheshkaushal/" target="_blank" class="btn-outline"
                         style="text-decoration: none;">VIEW LEETCODE ↗</a>
                 </div>
@@ -164,6 +165,21 @@
                                             </svg>
                                         </div>
                                         <span class="key-label">JAVASCRIPT</span>
+                                    </div>
+                                </div>
+
+                                <!-- SQL KEY -->
+                                <div class="keyboard-key key-sql">
+                                    <div class="key-top">
+                                        <span class="key-legend">Sq</span>
+                                        <div class="key-icon-wrapper">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                class="key-icon">
+                                                <path
+                                                    d="M12 2c-4.41 0-8 2.24-8 5s3.59 5 8 5 8-2.24 8-5-3.59-5-8-5zm0 8c-3.31 0-6-1.34-6-3s2.69-3 6-3 6 1.34 6 3-2.69 3-6 3zm-6 2c0 2.76 2.69 5 6 5s6-2.24 6-5v3c0 2.76-2.69 5-6 5s-6-2.24-6-5v-3zm0 5c0 2.76 2.69 5 6 5s6-2.24 6-5v3c0 2.76-2.69 5-6 5s-6-2.24-6-5v-3z" />
+                                            </svg>
+                                        </div>
+                                        <span class="key-label">SQL</span>
                                     </div>
                                 </div>
                             </div>
@@ -344,17 +360,111 @@
             </div>
         </section>
 
-        <!-- Section 03: Philosophy / Rules (Marquee Placeholder) -->
-        <section class="section-block philosophy-section" id="philosophy">
+        <!-- Section 03: Education -->
+        <section class="section-block education-section" id="education">
             <div class="section-meta gs-reveal">
                 <span>[ 03 / 04 ]</span>
-                <span class="meta-title">PHILOSOPHY</span>
+                <span class="meta-title">EDUCATION</span>
             </div>
 
-            <div class="philosophy-content">
-                <div class="marquee-container">
-                    <h2 class="massive-text scroll-right">CHASE DEADLINES.</h2>
-                    <h2 class="massive-text scroll-left">DEVOUR THEM.</h2>
+            <div class="education-layout">
+                <div class="education-left gs-reveal">
+                    <div>
+                        <h2 class="education-headline">An academic foundation in Computer Science and Artificial
+                            Intelligence.</h2>
+
+                        <!-- CERTIFICATIONS BLOCK -->
+                        <div class="certifications-container">
+                            <span class="certifications-heading">// CERTIFICATIONS</span>
+
+                            <div class="cert-list">
+                                <!-- Coursera ML Certification -->
+                                <div class="cert-item">
+                                    <div class="cert-icon-wrapper">
+                                        <img src="assets/coursera.png" alt="Coursera" class="cert-logo"
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <!-- Fallback letter if image is missing -->
+                                        <span class="cert-fallback"
+                                            style="display:none; font-family:monospace; font-weight:700; font-size:1.2rem; color:#FF4D4D;">C</span>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">Introduction to Machine Learning: Supervised Learning
+                                        </h4>
+                                        <div class="cert-meta">
+                                            <span class="cert-org">University of Colorado Boulder (Coursera)</span>
+                                            <span class="cert-date">March 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Apna College DSA Certification -->
+                                <div class="cert-item">
+                                    <div class="cert-icon-wrapper">
+                                        <img src="assets/apna_college.png" alt="Apna College" class="cert-logo"
+                                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <!-- Fallback letter if image is missing -->
+                                        <span class="cert-fallback"
+                                            style="display:none; font-family:monospace; font-weight:700; font-size:1.2rem; color:#FF4D4D;">A</span>
+                                    </div>
+                                    <div class="cert-info">
+                                        <h4 class="cert-title">DSA with Java (Alpha Course)</h4>
+                                        <div class="cert-meta">
+                                            <span class="cert-org">Apna College</span>
+                                            <span class="cert-date">January 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="education-watermark">ACADEMICS</div>
+                </div>
+
+                <div class="education-timeline">
+                    <!-- Glowing trace line animated on scroll -->
+                    <div class="timeline-line">
+                        <div class="timeline-progress"></div>
+                    </div>
+
+                    <!-- Netaji Subhas University of Technology -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2024 — 2028</span>
+                            <h3 class="timeline-title">Netaji Subhas University of Technology, New Delhi</h3>
+                            <p class="timeline-degree">Bachelor of Technology (B.Tech) – Computer Science &amp;
+                                Engineering (Artificial Intelligence)</p>
+                            <div class="timeline-badge-container">
+                                <span class="timeline-badge">CGPA: 7.63 / 10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Class XII -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">Class of 2024</span>
+                            <h3 class="timeline-title">Senior Secondary (Class XII)</h3>
+                            <p class="timeline-degree">Central Board Of Secondary Education (CBSE)</p>
+                            <div class="timeline-badge-container">
+                                <span class="timeline-badge">Percentage: 93.4%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Class X -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">Class of 2022</span>
+                            <h3 class="timeline-title">Secondary (Class X)</h3>
+                            <p class="timeline-degree">Central Board Of Secondary Education (CBSE)</p>
+                            <div class="timeline-badge-container">
+                                <span class="timeline-badge">Percentage: 94.2%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
