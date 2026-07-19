@@ -96,10 +96,31 @@ button {
     /* Darker red */
 }
 
+.btn-accent {
+    border: 1px solid var(--color-accent);
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    font-family: monospace;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-accent:hover {
+    background-color: #e63939;
+    border-color: #e63939;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.5);
+}
+
 .btn-outline {
     border: 1px solid rgba(255, 255, 255, 0.4);
     color: #fff;
-    padding: 1rem 2rem;
+    padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
     font-size: 0.85rem;
     font-family: monospace;
@@ -292,35 +313,91 @@ button {
 }
 
 /* ========================================================================= */
-/* Work Section (Subsections Restructured - Sticky Stacking Cards)          */
+/* Work Section (Pinned Flashcard Stacking Deck)                            */
 /* ========================================================================= */
 
-.projects-list {
+#work {
+    /* Standard section padding */
+    padding-bottom: var(--space-xl);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center the entire viewport vertically */
+}
+
+.projects-viewport {
     width: 100%;
-    margin-top: var(--space-md);
     position: relative;
+    overflow: hidden; /* Hide horizontal overflow */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.projects-list {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 6rem;
+    width: max-content;
+    padding: 0 5vw; /* Start with some offset from left edge */
 }
 
 .project-row {
-    width: 100%;
-    position: sticky;
-    top: 12vh;
-    background: rgba(10, 10, 10, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    width: 85vw; /* Responsive fixed width per card */
+    max-width: 1000px; /* Cap width for very large screens */
+    flex-shrink: 0; /* Prevent squeezing */
+    background: rgba(10, 10, 10, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 2.2rem;
-    margin-bottom: 8vh;
     box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.6);
-    transform-origin: top center;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.project-row:last-child {
-    margin-bottom: 0;
+/* Counter badge for pinned cards */
+.project-counter {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Scroll progress dots */
+.projects-progress {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 20;
+}
+
+.progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.progress-dot.is-active {
+    background: #FF4D4D;
+    border-color: #FF4D4D;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.6);
+    transform: scale(1.3);
 }
 
 .project-left {

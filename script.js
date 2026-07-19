@@ -90,25 +90,10 @@ class PortfolioExperience {
             );
         }
 
-        // Sticky Stacking Card Deck Effect for Selected Work
-        const projectCards = gsap.utils.toArray('.project-row');
-        projectCards.forEach((card, index) => {
-            // As long as it is not the last card, animate it shrinking/fading as the next card scrolls up
-            if (index < projectCards.length - 1) {
-                gsap.to(card, {
-                    scale: 0.94,
-                    opacity: 0.5,
-                    yPercent: -10, // slight vertical compression
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: projectCards[index + 1], // Triggered by the next card entering
-                        start: "top 85%",                 // Start scaling when the next card enters viewport
-                        end: "top 15%",                   // Stop scaling when the next card is fully placed
-                        scrub: true
-                    }
-                });
-            }
-        });
+        // =====================================================================
+        // PINNED FLASHCARD DECK — Projects Section
+        // =====================================================================
+        this.setupPinnedProjectDeck();
 
         // Education Timeline Progress Trace & Stagger Reveal
         const educationSection = document.querySelector('.education-section');
@@ -153,6 +138,37 @@ class PortfolioExperience {
         }
 
 
+    }
+
+    setupPinnedProjectDeck() {
+        const section = document.querySelector('#work');
+        const list = document.querySelector('.projects-list');
+        
+        if (!section || !list) return;
+
+        // Calculate the maximum scroll distance
+        const getScrollAmount = () => list.scrollWidth - window.innerWidth;
+
+        // Animate the horizontal track based on vertical scroll
+        gsap.to(list, {
+            x: () => -getScrollAmount(),
+            ease: "none",
+            scrollTrigger: {
+                trigger: list,
+                start: "center center", // Lock exactly when the row is perfectly centered on screen
+                end: () => `+=${getScrollAmount() + (window.innerHeight * 0.5)}`, // Add buffer
+                pin: section, // Pin the whole section so title stays visible
+                scrub: 1, // Smooth scrubbing
+                snap: {
+                    snapTo: 1 / (list.children.length - 1), // Snap to each project card exactly
+                    duration: 0.5,
+                    delay: 0.1,
+                    ease: "power1.inOut"
+                },
+                invalidateOnRefresh: true, // Recalculate on window resize
+                anticipatePin: 1
+            }
+        });
     }
 
     initInteractiveCanvas() {
